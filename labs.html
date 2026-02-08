@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxiant Labs - Professional-Grade AI Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8FAFC;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1B365D;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2E86AB;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #2E86AB, #1B365D);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(46, 134, 171, 0.3);
+        }
+
+        .secondary-button {
+            background: white;
+            color: #2E86AB;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #2E86AB;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .secondary-button:hover {
+            background: #2E86AB;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1B365D 0%, #2E86AB 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1B365D;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Product Showcase */
+        .products {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #E0E7FF;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #2E86AB;
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #2E86AB, #4CAF50);
+            color: white;
+            padding: 2rem;
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .product-body {
+            padding: 2rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .product-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .features-label {
+            color: #1B365D;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 0.4rem 0;
+            color: #666;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .features-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #2E86AB;
+            font-weight: bold;
+        }
+
+        .pricing-section {
+            background: #F8FAFC;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-label {
+            color: #1B365D;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .pricing-tier {
+            background: white;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #E0E7FF;
+            text-align: center;
+        }
+
+        .pricing-tier strong {
+            color: #2E86AB;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .pricing-tier span {
+            color: #1B365D;
+            font-weight: 600;
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-buttons button,
+        .product-buttons a {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .start-free {
+            background: white;
+            color: #2E86AB;
+            border: 2px solid #2E86AB;
+        }
+
+        .start-free:hover {
+            background: #2E86AB;
+            color: white;
+        }
+
+        .talk-sales {
+            background: #2E86AB;
+            color: white;
+        }
+
+        .talk-sales:hover {
+            background: #1B365D;
+        }
+
+        /* Integrations */
+        .integrations {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
+        }
+
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .integration-badge {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #E0E7FF;
+            font-weight: 600;
+            color: #1B365D;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .integration-badge:hover {
+            transform: translateY(-2px);
+            border-color: #2E86AB;
+        }
+
+        .integration-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Developer Section */
+        .developer {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .developer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .developer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .dev-card {
+            background: #F8FAFC;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid #E0E7FF;
+            transition: all 0.3s ease;
+        }
+
+        .dev-card:hover {
+            border-color: #2E86AB;
+            box-shadow: 0 4px 12px rgba(46, 134, 171, 0.15);
+        }
+
+        .dev-card h3 {
+            color: #1B365D;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .dev-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .dev-link {
+            color: #2E86AB;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .dev-link:hover {
+            color: #1B365D;
+        }
+
+        /* Pricing Comparison */
+        .pricing-comparison {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table thead {
+            background: linear-gradient(135deg, #1B365D, #2E86AB);
+            color: white;
+        }
+
+        table th,
+        table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #E0E7FF;
+        }
+
+        table th {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        table tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .roadmap-content {
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .roadmap-item {
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: #2E86AB;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #2E86AB;
+        }
+
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 24px;
+            width: 0;
+            height: 40px;
+            border-left: 2px dashed #E0E7FF;
+        }
+
+        .roadmap-item:last-child::after {
+            display: none;
+        }
+
+        .roadmap-quarter {
+            color: #2E86AB;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-features {
+            list-style: none;
+        }
+
+        .roadmap-features li {
+            padding: 0.4rem 0;
+            color: #666;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1B365D 0%, #2E86AB 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a {
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons .primary {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .cta-buttons .primary:hover {
+            background: #45a049;
+        }
+
+        .cta-buttons .secondary {
+            background: white;
+            color: #1B365D;
+        }
+
+        .cta-buttons .secondary:hover {
+            background: #F8FAFC;
+        }
+
+        /* Footer */
+        footer {
+            background: #1B365D;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid,
+            .integrations-grid,
+            .developer-grid,
+            .pricing-tiers {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons,
+            .cta-buttons,
+            .product-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a,
+            .cta-buttons a,
+            .product-buttons button {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            table th,
+            table td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Proxiant Labs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academy.html">Academy</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional-Grade AI Products. Built to Deliver.</h1>
+            <p>A suite of powerful, enterprise-ready AI products designed for teams building with modern AI technologies.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="cta-button">Explore Products</a>
+                <a href="#pricing" class="secondary-button" style="color: white; border-color: white;">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Product Suite</h2>
+                <p>Six powerful products covering every aspect of AI operations</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1: ProxiFlow -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🔄</div>
+                        <h3>ProxiFlow</h3>
+                        <p class="product-tagline">Workflow Automation Platform</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">Visual workflow builder with AI-powered automation. Connect 200+ integrations and automate complex business processes with ease.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>No-code workflow builder</li>
+                                <li>200+ integrations</li>
+                                <li>AI-powered optimization</li>
+                                <li>Real-time monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Starter</strong>
+                                    <span>Free</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Pro</strong>
+                                    <span>$199/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiFlow free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: ProxiAgent -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🤖</div>
+                        <h3>ProxiAgent</h3>
+                        <p class="product-tagline">Agentic AI Framework</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">Build, deploy, and manage AI agents at scale. Multi-model support with unified management dashboard and monitoring tools.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>Multi-model support</li>
+                                <li>Tool integration</li>
+                                <li>Agent orchestration</li>
+                                <li>Performance monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Developer</strong>
+                                    <span>$99/mo</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Team</strong>
+                                    <span>$299/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiAgent free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: ProxiGuard -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🔐</div>
+                        <h3>ProxiGuard</h3>
+                        <p class="product-tagline">AI Governance & Compliance</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">Comprehensive governance and compliance platform for AI systems. Policy enforcement, audit trails, and risk scoring in one place.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>Policy enforcement</li>
+                                <li>Audit trails & logging</li>
+                                <li>Risk scoring</li>
+                                <li>Compliance reporting</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Essential</strong>
+                                    <span>$149/mo</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Pro</strong>
+                                    <span>$399/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiGuard free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: ProxiInsight -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">📊</div>
+                        <h3>ProxiInsight</h3>
+                        <p class="product-tagline">AI Analytics Dashboard</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">Real-time AI performance monitoring. Track costs, usage, performance metrics, and ROI across all your AI systems in one dashboard.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>Real-time dashboards</li>
+                                <li>Cost tracking</li>
+                                <li>Performance analytics</li>
+                                <li>ROI reporting</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Basic</strong>
+                                    <span>Free</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Pro</strong>
+                                    <span>$199/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiInsight free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: ProxiConnect -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🔗</div>
+                        <h3>ProxiConnect</h3>
+                        <p class="product-tagline">API Integration Hub</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">Unified API layer connecting any AI model to any system. Simplify integration complexity with our powerful adapter framework.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>Model agnostic</li>
+                                <li>Easy integrations</li>
+                                <li>Request routing</li>
+                                <li>Rate limiting</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Developer</strong>
+                                    <span>Free</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Pro</strong>
+                                    <span>$149/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiConnect free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: ProxiTune -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🎯</div>
+                        <h3>ProxiTune</h3>
+                        <p class="product-tagline">Fine-tuning Platform</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">No-code fine-tuning platform. Manage datasets, train custom models, and optimize performance without deep ML expertise.</p>
+                        <div class="product-features">
+                            <span class="features-label">Key Features:</span>
+                            <ul class="features-list">
+                                <li>No-code interface</li>
+                                <li>Dataset management</li>
+                                <li>Model training</li>
+                                <li>Performance evaluation</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-section">
+                            <span class="pricing-label">Pricing Plans:</span>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <strong>Starter</strong>
+                                    <span>$99/mo</span>
+                                </div>
+                                <div class="pricing-tier">
+                                    <strong>Pro</strong>
+                                    <span>$499/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="start-free" onclick="alert('Starting ProxiTune free trial...')">Start Free</button>
+                            <button class="talk-sales" onclick="alert('Connecting to sales...')">Talk to Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Integration Ecosystem</h2>
+                <p>Connect with your favorite tools and platforms</p>
+            </div>
+            <div class="integrations-grid">
+                <div class="integration-badge">
+                    <div class="integration-icon">💬</div>
+                    <div>Slack</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">💼</div>
+                    <div>Salesforce</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">📧</div>
+                    <div>HubSpot</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">🐛</div>
+                    <div>Jira</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">📊</div>
+                    <div>Tableau</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">☁️</div>
+                    <div>Snowflake</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">📈</div>
+                    <div>Google Analytics</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">⚡</div>
+                    <div>Zapier</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">🔐</div>
+                    <div>Auth0</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">📱</div>
+                    <div>Twilio</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">💳</div>
+                    <div>Stripe</div>
+                </div>
+                <div class="integration-badge">
+                    <div class="integration-icon">🗄️</div>
+                    <div>PostgreSQL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="developer" id="docs">
+        <div class="container">
+            <div class="section-header">
+                <h2>For Developers</h2>
+                <p>Everything you need to build with Proxiant</p>
+            </div>
+            <div class="developer-content">
+                <div class="developer-grid">
+                    <div class="dev-card">
+                        <h3>📚 Documentation</h3>
+                        <p>Comprehensive guides, API references, and tutorials to get you started quickly. Clear examples in multiple languages.</p>
+                        <a href="#" class="dev-link">Explore Docs →</a>
+                    </div>
+                    <div class="dev-card">
+                        <h3>💻 SDKs</h3>
+                        <p>Official SDKs for Python, JavaScript, Go, and more. Type-safe, fully documented, and maintained by the team.</p>
+                        <a href="#" class="dev-link">View SDKs →</a>
+                    </div>
+                    <div class="dev-card">
+                        <h3>🔧 API Playground</h3>
+                        <p>Interactive API playground to test endpoints, explore parameters, and understand responses in real-time.</p>
+                        <a href="#" class="dev-link">Try Playground →</a>
+                    </div>
+                    <div class="dev-card">
+                        <h3>🧪 Code Examples</h3>
+                        <p>Real-world examples showing how to integrate Proxiant products into your applications and workflows.</p>
+                        <a href="#" class="dev-link">Browse Examples →</a>
+                    </div>
+                    <div class="dev-card">
+                        <h3>🐙 GitHub</h3>
+                        <p>Open-source libraries, sample projects, and tools. Contribute to the community and build together.</p>
+                        <a href="#" class="dev-link">Visit GitHub →</a>
+                    </div>
+                    <div class="dev-card">
+                        <h3>💬 Community</h3>
+                        <p>Active developer community on Discord and forums. Ask questions, share builds, and connect with other developers.</p>
+                        <a href="#" class="dev-link">Join Community →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Comparison Table -->
+    <section class="pricing-comparison" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Pricing</h2>
+                <p>Choose the right plan for your needs</p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>ProxiFlow</th>
+                            <th>ProxiAgent</th>
+                            <th>ProxiGuard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Starter/Developer</strong></td>
+                            <td>Free</td>
+                            <td>$99/mo</td>
+                            <td>$149/mo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pro/Team</strong></td>
+                            <td>$199/mo</td>
+                            <td>$299/mo</td>
+                            <td>$399/mo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Workflows/Integrations</strong></td>
+                            <td>✓ 200+</td>
+                            <td>✓ Full</td>
+                            <td>✓ Custom</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Access</strong></td>
+                            <td>✓ Included</td>
+                            <td>✓ Included</td>
+                            <td>✓ Included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team Members</strong></td>
+                            <td>Unlimited</td>
+                            <td>Per-seat pricing</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support</strong></td>
+                            <td>Community</td>
+                            <td>Email</td>
+                            <td>Priority</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SLA</strong></td>
+                            <td>-</td>
+                            <td>99.5%</td>
+                            <td>99.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Custom Deploy</strong></td>
+                            <td>Available</td>
+                            <td>Available</td>
+                            <td>Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2>Product Roadmap</h2>
+                <p>What's coming next</p>
+            </div>
+            <div class="roadmap-content">
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <div class="roadmap-quarter"><strong>Q1 2024</strong></div>
+                        <ul class="roadmap-features">
+                            <li>ProxiFlow: Visual workflow debugger</li>
+                            <li>ProxiAgent: Multi-turn conversation memory</li>
+                            <li>ProxiGuard: HIPAA compliance modules</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-quarter"><strong>Q2 2024</strong></div>
+                        <ul class="roadmap-features">
+                            <li>ProxiFlow: Advanced scheduling engine</li>
+                            <li>ProxiInsight: Custom metric builder</li>
+                            <li>ProxiConnect: GraphQL support</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-quarter"><strong>Q3 2024</strong></div>
+                        <ul class="roadmap-features">
+                            <li>ProxiTune: Voice model fine-tuning</li>
+                            <li>ProxiAgent: Collaborative multi-agent support</li>
+                            <li>ProxiGuard: Advanced threat detection</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-quarter"><strong>Q4 2024</strong></div>
+                        <ul class="roadmap-features">
+                            <li>New Products: Proxi Vision (computer vision suite)</li>
+                            <li>Enterprise Portal: Advanced user management</li>
+                            <li>All Products: White-label options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build with Proxiant?</h2>
+            <p>Start for free or talk to our team about enterprise solutions</p>
+            <div class="cta-buttons">
+                <a href="#products" class="primary">Start Free Trial</a>
+                <a href="#contact" class="secondary">Talk to Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Proxiant AI</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="academy.html">Academy</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="labs.html">Labs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#docs">API Docs</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Proxiant Labs. All rights reserved. The professionals behind your AI transition.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
