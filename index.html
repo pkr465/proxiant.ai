@@ -1,1438 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxiant AI - The Professionals Behind Your AI Transition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #F8FAFC;
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1B365D;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #2E86AB;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #2E86AB, #1B365D);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(46, 134, 171, 0.3);
-        }
-
-        .secondary-button {
-            background: white;
-            color: #2E86AB;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid #2E86AB;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .secondary-button:hover {
-            background: #2E86AB;
-            color: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1B365D 0%, #2E86AB 100%);
-            color: white;
-            padding: 7rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid #E0E7FF;
-        }
-
-        .trust-bar p {
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .trust-logos {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .trust-logo {
-            font-weight: 600;
-            color: #999;
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
-            background: #F8FAFC;
-            border-radius: 4px;
-        }
-
-        /* Divisions Section */
-        .divisions {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: #1B365D;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .divisions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .division-card {
-            background: white;
-            border: 1px solid #E0E7FF;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .division-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            border-color: #2E86AB;
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .division-card h3 {
-            font-size: 1.5rem;
-            color: #1B365D;
-            margin-bottom: 0.5rem;
-        }
-
-        .division-card p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .card-services {
-            background: #F8FAFC;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .learn-more {
-            color: #2E86AB;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .learn-more:hover {
-            color: #1B365D;
-        }
-
-        /* Why Proxiant Section */
-        .why-proxiant {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.2rem;
-            color: #1B365D;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* How We Work */
-        .how-we-work {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            position: relative;
-        }
-
-        .step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #2E86AB, #1B365D);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-
-        .step h4 {
-            color: #1B365D;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .step p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1B365D 0%, #2E86AB 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: #F8FAFC;
-            border-left: 4px solid #4CAF50;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            color: #1B365D;
-            font-weight: 600;
-        }
-
-        .testimonial-role {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Case Studies */
-        .case-studies {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
-        }
-
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .case-study-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .case-study-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .case-study-header {
-            background: linear-gradient(135deg, #2E86AB, #1B365D);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .case-study-header h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .case-study-body {
-            padding: 1.5rem;
-        }
-
-        .case-study-body p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .challenge, .result {
-            margin-bottom: 1rem;
-        }
-
-        .challenge-label, .result-label {
-            color: #1B365D;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Pricing Overview */
-        .pricing-overview {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border: 2px solid #E0E7FF;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            border-color: #2E86AB;
-            box-shadow: 0 8px 20px rgba(46, 134, 171, 0.15);
-        }
-
-        .pricing-card h3 {
-            color: #1B365D;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-card .price {
-            font-size: 2rem;
-            color: #2E86AB;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0;
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .pricing-card li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #E0E7FF;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #2E86AB, #4CAF50);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 2rem;
-        }
-
-        .team-card h3 {
-            color: #1B365D;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .team-role {
-            color: #2E86AB;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-bio {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Partners */
-        .partners {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .partner-badge {
-            background: #F8FAFC;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #E0E7FF;
-            font-weight: 600;
-            color: #1B365D;
-            font-size: 0.9rem;
-        }
-
-        /* Blog/Insights */
-        .insights {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #F8FAFC 0%, #E8F0F7 100%);
-        }
-
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .insight-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .insight-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .insight-meta {
-            background: #F8FAFC;
-            padding: 1.5rem;
-            border-bottom: 1px solid #E0E7FF;
-        }
-
-        .insight-meta p {
-            color: #999;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .insight-card h3 {
-            color: #1B365D;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .insight-body {
-            padding: 1.5rem;
-        }
-
-        .insight-body p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1B365D 0%, #2E86AB 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .newsletter-form {
-            max-width: 400px;
-            margin: 0 auto;
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .newsletter-form button {
-            padding: 0.8rem 1.5rem;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background: #45a049;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-            align-items: start;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 0.8rem;
-            border: 1px solid #E0E7FF;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-info {
-            background: #F8FAFC;
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .contact-info h3 {
-            color: #1B365D;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item strong {
-            color: #1B365D;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: #2E86AB;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: #1B365D;
-        }
-
-        /* Footer */
-        footer {
-            background: #1B365D;
-            color: white;
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #4CAF50;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #4CAF50;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1rem;
-            text-align: center;
-            color: #999;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .divisions-grid,
-            .features-grid,
-            .testimonials-grid,
-            .case-studies-grid,
-            .pricing-grid,
-            .team-grid,
-            .insights-grid,
-            .partners-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-form input,
-            .newsletter-form button {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxiant — Enterprise AI Training, Transformation & Products</title>
+  <meta name="description" content="Proxiant delivers enterprise AI training, consulting, and products. We help organizations build real AI capability — not just hype.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1419;
+      --ink-secondary: #536471;
+      --ink-muted: #8899a6;
+      --surface: #ffffff;
+      --surface-raised: #f7f9fa;
+      --surface-subtle: #eff3f4;
+      --accent: #1d4ed8;
+      --accent-light: #dbeafe;
+      --accent-muted: #93c5fd;
+      --border: #e1e8ed;
+      --green: #059669;
+      --green-light: #d1fae5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--ink); line-height: 1.6; background: var(--surface); }
+
+    /* UTILITY */
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'DM Mono', monospace; }
+    .sr-only { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; }
+
+    /* NAV */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-brand { font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; font-family: inherit; }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: #1a2a3a; }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--ink); }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-accent:hover { background: #1e40af; }
+    .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--ink); }
+
+    /* HERO */
+    .hero { padding: 100px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; color: var(--ink); }
+    .hero p { font-size: 1.1rem; color: var(--ink-secondary); line-height: 1.65; margin-bottom: 32px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual { background: var(--surface-raised); border: 1px solid var(--border); border-radius: 16px; padding: 32px; position: relative; }
+    .hero-visual .stat-row { display: flex; gap: 20px; margin-bottom: 20px; }
+    .hero-stat { flex: 1; }
+    .hero-stat .num { font-size: 1.75rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+    .hero-stat .label { font-size: 0.78rem; color: var(--ink-muted); margin-top: 2px; }
+    .hero-visual .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 80px; margin-top: 12px; }
+    .hero-visual .bar { flex: 1; background: var(--accent-light); border-radius: 4px 4px 0 0; }
+    .hero-visual .bar.active { background: var(--accent); }
+    .hero-visual .caption { font-size: 0.75rem; color: var(--ink-muted); margin-top: 8px; }
+
+    /* LOGOS BAR */
+    .logos-bar { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .logos-bar p { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px; }
+    .logos-row { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .logos-row span { font-weight: 600; color: var(--ink-muted); font-size: 0.9rem; white-space: nowrap; }
+
+    /* DIVISIONS */
+    .divisions { padding: 96px 0; }
+    .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-heading { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 1.05rem; color: var(--ink-secondary); max-width: 520px; line-height: 1.6; margin-bottom: 48px; }
+    .div-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .div-card { background: var(--surface); padding: 36px 32px; transition: background 0.2s; }
+    .div-card:hover { background: var(--surface-raised); }
+    .div-num { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--ink-muted); margin-bottom: 16px; }
+    .div-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .div-card p { font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 16px; }
+    .div-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .div-tag { font-size: 0.72rem; font-weight: 500; padding: 3px 10px; border-radius: 100px; background: var(--surface-subtle); color: var(--ink-secondary); }
+    .div-link { font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .div-link:hover { text-decoration: underline; }
+
+    /* APPROACH */
+    .approach { padding: 96px 0; background: var(--ink); color: #fff; }
+    .approach .section-label { color: var(--accent-muted); }
+    .approach .section-heading { color: #fff; }
+    .approach .section-sub { color: rgba(255,255,255,0.6); }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 20px; left: 40px; right: 40px; height: 1px; background: rgba(255,255,255,0.15); }
+    .step { text-align: center; position: relative; }
+    .step-dot { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.85rem; font-weight: 500; margin: 0 auto 16px; background: var(--ink); position: relative; z-index: 1; }
+    .step h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .step p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; padding: 0 8px; }
+
+    /* RESULTS */
+    .results { padding: 96px 0; border-bottom: 1px solid var(--border); }
+    .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .result-item .num { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+    .result-item .detail { font-size: 0.85rem; color: var(--ink-secondary); margin-top: 4px; }
+
+    /* CASE STUDIES */
+    .cases { padding: 96px 0; }
+    .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .case-card { border: 1px solid var(--border); border-radius: 12px; padding: 32px; transition: border-color 0.2s; }
+    .case-card:hover { border-color: var(--ink-muted); }
+    .case-industry { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .case-card p { font-size: 0.88rem; color: var(--ink-secondary); line-height: 1.6; }
+    .case-metric { display: inline-block; margin-top: 16px; padding: 6px 14px; background: var(--green-light); color: var(--green); font-size: 0.82rem; font-weight: 600; border-radius: 100px; }
+
+    /* TEAM */
+    .team { padding: 96px 0; background: var(--surface-raised); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .team-card { text-align: center; }
+    .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin: 0 auto 12px; }
+    .team-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+    .team-role { font-size: 0.82rem; color: var(--ink-muted); }
+
+    /* PARTNERS */
+    .partners { padding: 64px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .partner-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .partner-chip { padding: 8px 18px; border: 1px solid var(--border); border-radius: 100px; font-size: 0.82rem; font-weight: 500; color: var(--ink-secondary); }
+
+    /* CTA */
+    .cta-section { padding: 96px 0; }
+    .cta-box { background: var(--ink); border-radius: 16px; padding: 64px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+    .cta-box h2 { font-size: 1.75rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; max-width: 480px; }
+    .cta-box .btn-accent { padding: 14px 32px; font-size: 0.95rem; white-space: nowrap; }
+
+    /* FOOTER */
+    footer { padding: 64px 0 32px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .footer-brand span { color: var(--accent); }
+    .footer-tagline { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; }
+    footer h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+    footer ul { list-style: none; }
+    footer li { margin-bottom: 8px; }
+    footer a { color: var(--ink-secondary); text-decoration: none; font-size: 0.88rem; }
+    footer a:hover { color: var(--ink); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; font-size: 0.78rem; color: var(--ink-muted); display: flex; justify-content: space-between; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .div-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .steps::before { display: none; }
+      .results-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .cta-box { grid-template-columns: 1fr; padding: 40px; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .steps { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo">Proxiant AI</a>
-            <ul class="nav-links">
-                <li><a href="academy.html">Academy</a></li>
-                <li><a href="solutions.html">Solutions</a></li>
-                <li><a href="labs.html">Labs</a></li>
-                <li><a href="#contact">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#consultation" class="cta-button">Book a Consultation</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>The Professionals Behind Your AI Transition</h1>
-            <p>Enterprise AI training, transformation, and products — delivered with certainty.</p>
-            <div class="hero-buttons">
-                <a href="#divisions" class="cta-button">Explore Our Services</a>
-                <a href="#consultation" class="secondary-button" style="color: white; border-color: white; background: transparent;">Book a Free Consultation</a>
-            </div>
-        </div>
-    </section>
+  <header>
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-brand">Proxiant<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="proxialpha.html">ProxiAlpha</a></li>
+        <li><a href="#contact" class="btn btn-primary">Get in touch</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <p>TRUSTED BY PROFESSIONALS WORLDWIDE</p>
-        <div class="trust-logos">
-            <div class="trust-logo">Fortune 500 Companies</div>
-            <div class="trust-logo">Tech Leaders</div>
-            <div class="trust-logo">Enterprise Organizations</div>
-            <div class="trust-logo">Growing Startups</div>
-            <div class="trust-logo">Government Agencies</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-kicker">Enterprise AI, done right</div>
+        <h1>We help teams build real AI capability&mdash;not just adopt tools.</h1>
+        <p>Proxiant delivers training, consulting, and products that move organizations from AI-curious to AI-native. No fluff. No hype. Just outcomes.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a consultation</a>
+          <a href="#divisions" class="btn btn-outline">See how we work</a>
         </div>
-    </section>
+      </div>
+      <div class="hero-visual">
+        <div class="stat-row">
+          <div class="hero-stat"><div class="num">100+</div><div class="label">Professionals trained</div></div>
+          <div class="hero-stat"><div class="num">50+</div><div class="label">Enterprise projects</div></div>
+          <div class="hero-stat"><div class="num">99.5%</div><div class="label">On-time delivery</div></div>
+        </div>
+        <div class="bar-chart">
+          <div class="bar" style="height:35%"></div>
+          <div class="bar" style="height:48%"></div>
+          <div class="bar" style="height:42%"></div>
+          <div class="bar" style="height:58%"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:52%"></div>
+          <div class="bar" style="height:72%"></div>
+          <div class="bar active" style="height:85%"></div>
+          <div class="bar active" style="height:78%"></div>
+          <div class="bar active" style="height:92%"></div>
+          <div class="bar active" style="height:100%"></div>
+        </div>
+        <div class="caption mono">Client AI capability growth over 12 months</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Divisions Section -->
-    <section class="divisions" id="divisions">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Three Divisions</h2>
-                <p>Comprehensive AI solutions across training, consulting, and products</p>
-            </div>
-            <div class="divisions-grid">
-                <div class="division-card">
-                    <div class="card-icon">🎓</div>
-                    <h3>Proxiant Academy</h3>
-                    <p>Professional AI training and certification programs for individuals and enterprises.</p>
-                    <div class="card-services">
-                        Fundamentals • Engineering • Leadership • Advanced Training
-                    </div>
-                    <a href="academy.html" class="learn-more">Explore Academy →</a>
-                </div>
-                <div class="division-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Proxiant Solutions</h3>
-                    <p>End-to-end AI transformation consulting and implementation for enterprises.</p>
-                    <div class="card-services">
-                        Assessments • Strategy • Implementation • Managed Services
-                    </div>
-                    <a href="solutions.html" class="learn-more">Explore Solutions →</a>
-                </div>
-                <div class="division-card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Proxiant Labs</h3>
-                    <p>Professional-grade AI products built for enterprise efficiency and scale.</p>
-                    <div class="card-services">
-                        ProxiFlow • ProxiAgent • ProxiGuard • More Products
-                    </div>
-                    <a href="labs.html" class="learn-more">Explore Labs →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- LOGOS -->
+  <section class="logos-bar">
+    <div class="wrap">
+      <p>Trusted by teams at</p>
+      <div class="logos-row">
+        <span>Anthropic</span><span>AWS</span><span>Microsoft</span><span>Google Cloud</span><span>OpenAI</span><span>Hugging Face</span><span>LangChain</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why Proxiant Section -->
-    <section class="why-proxiant">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Proxiant</h2>
-                <p>The advantages that set us apart from the competition</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Professional Expertise</h3>
-                    <p>100+ certified AI professionals with deep experience across industries and technologies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✓</div>
-                    <h3>Proven Methodology</h3>
-                    <p>Battle-tested frameworks and processes that deliver consistent results across diverse organizations.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Reliable Delivery</h3>
-                    <p>99.5% on-time delivery rate with transparent communication and accountability at every step.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>End-to-End Support</h3>
-                    <p>From strategy and development through deployment and ongoing optimization and management.</p>
-                </div>
-            </div>
+  <!-- DIVISIONS -->
+  <section class="divisions" id="divisions">
+    <div class="wrap">
+      <div class="section-label">What we do</div>
+      <h2 class="section-heading">Two divisions.<br>One mission.</h2>
+      <p class="section-sub">Everything an organization needs to build real AI capability—strategy, solutions, and products.</p>
+      <div class="div-grid">
+        <div class="div-card">
+          <div class="div-num mono">01</div>
+          <h3>Solutions</h3>
+          <p>End-to-end AI consulting and implementation. We assess, design, build, and deploy&mdash;then stick around to optimize.</p>
+          <div class="div-tags">
+            <span class="div-tag">Assessment</span>
+            <span class="div-tag">Strategy</span>
+            <span class="div-tag">Implementation</span>
+            <span class="div-tag">Managed AI</span>
+          </div>
+          <a href="solutions.html" class="div-link">Explore Solutions &rarr;</a>
         </div>
-    </section>
+        <div class="div-card">
+          <div class="div-num mono">02</div>
+          <h3>Labs</h3>
+          <p>Products we build and ship. Production-grade tools for workflow automation, agent orchestration, and AI-powered trading.</p>
+          <div class="div-tags">
+            <span class="div-tag">ProxiFlow</span>
+            <span class="div-tag">ProxiAgent</span>
+            <span class="div-tag">ProxiAlpha</span>
+            <span class="div-tag">API access</span>
+          </div>
+          <a href="labs.html" class="div-link">Explore Labs &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- How We Work -->
-    <section class="how-we-work">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Transformation Process</h2>
-                <p>Five proven steps to your successful AI integration</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Assess</h4>
-                    <p>Evaluate your current state, readiness, and opportunities for AI implementation.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Design</h4>
-                    <p>Create a comprehensive AI strategy and roadmap tailored to your business goals.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Build</h4>
-                    <p>Develop custom solutions, agents, and automations specific to your needs.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Deploy</h4>
-                    <p>Seamlessly implement solutions in your production environment with full support.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h4>Optimize</h4>
-                    <p>Continuously monitor, refine, and enhance your AI systems for maximum impact.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- APPROACH -->
+  <section class="approach">
+    <div class="wrap">
+      <div class="section-label">How we work</div>
+      <h2 class="section-heading">A process that actually delivers.</h2>
+      <p class="section-sub">Five steps. No hand-waving. Every engagement follows the same disciplined framework.</p>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><h4>Assess</h4><p>Audit your current state and readiness</p></div>
+        <div class="step"><div class="step-dot">2</div><h4>Design</h4><p>Build a strategy mapped to business goals</p></div>
+        <div class="step"><div class="step-dot">3</div><h4>Build</h4><p>Develop custom solutions and agents</p></div>
+        <div class="step"><div class="step-dot">4</div><h4>Deploy</h4><p>Ship to production with full support</p></div>
+        <div class="step"><div class="step-dot">5</div><h4>Optimize</h4><p>Monitor, refine, and scale over time</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>100+</h3>
-                    <p>Professionals Trained</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Enterprise Projects</p>
-                </div>
-                <div class="stat-item">
-                    <h3>6</h3>
-                    <p>AI Products</p>
-                </div>
-                <div class="stat-item">
-                    <h3>99.5%</h3>
-                    <p>On-Time Delivery</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- RESULTS -->
+  <section class="results">
+    <div class="wrap">
+      <div class="section-label">By the numbers</div>
+      <h2 class="section-heading" style="margin-bottom:48px;">Outcomes, not outputs.</h2>
+      <div class="results-grid">
+        <div class="result-item"><div class="num">40%</div><div class="detail">Reduction in manual processing for a Fortune 500 financial services firm</div></div>
+        <div class="result-item"><div class="num">22%</div><div class="detail">Cost reduction in supply chain ops for a manufacturing enterprise</div></div>
+        <div class="result-item"><div class="num">5.6x</div><div class="detail">Faster intake processing for a healthcare network of 12 hospitals</div></div>
+        <div class="result-item"><div class="num">15</div><div class="detail">AI strategies running in parallel on ProxiAlpha&rsquo;s trading platform</div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Clients Say</h2>
-                <p>Real experiences from real professionals and organizations</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Proxiant transformed our AI readiness from uncertain to confident. Their team's expertise and methodology made the entire transition smooth and impactful."</p>
-                    <div class="testimonial-author">Sarah Chen</div>
-                    <div class="testimonial-role">VP of Innovation, Tech Corp</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The training programs at Proxiant Academy gave our team the skills and confidence to lead AI initiatives. Highly professional and incredibly practical."</p>
-                    <div class="testimonial-author">James Rodriguez</div>
-                    <div class="testimonial-role">Engineering Lead, Global Finance</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"From strategy to implementation, Proxiant Solutions delivered exceptional results. They understand enterprise needs and deliver with precision."</p>
-                    <div class="testimonial-author">Michelle Parks</div>
-                    <div class="testimonial-role">Chief Technology Officer, Healthcare Inc</div>
-                </div>
-            </div>
+  <!-- CASE STUDIES -->
+  <section class="cases">
+    <div class="wrap">
+      <div class="section-label">Case studies</div>
+      <h2 class="section-heading" style="margin-bottom:48px;">Real work. Real results.</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-industry">Financial Services</div>
+          <h3>Automated document processing pipeline</h3>
+          <p>Replaced manual review of 10,000+ daily documents with an AI agent pipeline, cutting labor costs and processing time dramatically.</p>
+          <span class="case-metric">40% cost reduction</span>
         </div>
-    </section>
+        <div class="case-card">
+          <div class="case-industry">Manufacturing</div>
+          <h3>AI-powered supply chain optimization</h3>
+          <p>Built predictive models that optimized routing, inventory, and demand forecasting across a multi-facility operation.</p>
+          <span class="case-metric">22% cost savings, 30% faster delivery</span>
+        </div>
+        <div class="case-card">
+          <div class="case-industry">Healthcare</div>
+          <h3>Patient intake triage system</h3>
+          <p>Designed an AI triage system that reduced per-patient intake from 45 minutes to 8, improving both throughput and satisfaction.</p>
+          <span class="case-metric">82% time reduction</span>
+        </div>
+        <div class="case-card">
+          <div class="case-industry">FinTech</div>
+          <h3>Multi-strategy AI trading platform</h3>
+          <p>Built ProxiAlpha: 15 trading strategies with LLM integration, real-time signals, and a professional dashboard shipped to production.</p>
+          <span class="case-metric"><a href="proxialpha.html" style="color:var(--green);text-decoration:none;">View ProxiAlpha &rarr;</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Case Studies Preview -->
-    <section class="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <h2>Case Studies</h2>
-                <p>Real results from real clients across industries</p>
-            </div>
-            <div class="case-studies-grid">
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <h3>Financial Services</h3>
-                        <p>Automated Document Processing</p>
-                    </div>
-                    <div class="case-study-body">
-                        <div class="challenge">
-                            <span class="challenge-label">Challenge:</span> Manual processing of 10,000+ documents daily consuming $2M+ annually in labor costs.
-                        </div>
-                        <div class="result">
-                            <span class="result-label">Result:</span> 40% reduction in manual processing with AI agents handling 95% of routine tasks automatically.
-                        </div>
-                    </div>
-                </div>
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <h3>Manufacturing</h3>
-                        <p>Supply Chain Optimization</p>
-                    </div>
-                    <div class="case-study-body">
-                        <div class="challenge">
-                            <span class="challenge-label">Challenge:</span> Supply chain inefficiencies causing 15% increased operational costs and delivery delays.
-                        </div>
-                        <div class="result">
-                            <span class="result-label">Result:</span> AI-powered optimization delivered 22% cost reduction and 30% faster delivery times.
-                        </div>
-                    </div>
-                </div>
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <h3>Healthcare</h3>
-                        <p>Patient Intake Automation</p>
-                    </div>
-                    <div class="case-study-body">
-                        <div class="challenge">
-                            <span class="challenge-label">Challenge:</span> Patient intake process taking 45 minutes per patient, creating bottlenecks.
-                        </div>
-                        <div class="result">
-                            <span class="result-label">Result:</span> AI triage system reduced intake time to 8 minutes while improving accuracy and patient satisfaction.
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- TEAM -->
+  <section class="team">
+    <div class="wrap">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-heading" style="margin-bottom:48px;">The people behind the work.</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">P</div>
+          <h3>Pavan</h3>
+          <div class="team-role">Founder &amp; CEO</div>
         </div>
-    </section>
+        <div class="team-card">
+          <div class="team-avatar">RC</div>
+          <h3>Rajesh Choudhury</h3>
+          <div class="team-role">CTO &amp; Head of Labs</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AK</div>
+          <h3>Amanda Kovacs</h3>
+          <div class="team-role">Head of Solutions</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Pricing Overview -->
-    <section class="pricing-overview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Service Pricing</h2>
-                <p>Transparent pricing across our three divisions</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Proxiant Academy</h3>
-                    <div class="price">$1,499+</div>
-                    <ul>
-                        <li>Individual Courses</li>
-                        <li>Certification Programs</li>
-                        <li>Corporate Training</li>
-                        <li>Custom Curriculum</li>
-                    </ul>
-                    <a href="academy.html" class="cta-button">View Courses</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Proxiant Solutions</h3>
-                    <div class="price">$5K+</div>
-                    <ul>
-                        <li>AI Assessments</li>
-                        <li>Strategy & Design</li>
-                        <li>Implementation</li>
-                        <li>Ongoing Support</li>
-                    </ul>
-                    <a href="solutions.html" class="cta-button">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Proxiant Labs</h3>
-                    <div class="price">Free+</div>
-                    <ul>
-                        <li>SaaS Products</li>
-                        <li>Developer Tools</li>
-                        <li>API Access</li>
-                        <li>Enterprise Plans</li>
-                    </ul>
-                    <a href="labs.html" class="cta-button">Explore Products</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- PARTNERS -->
+  <section class="partners">
+    <div class="wrap">
+      <div class="section-label" style="margin-bottom:20px;">Technology partners</div>
+      <div class="partner-row">
+        <span class="partner-chip">OpenAI</span>
+        <span class="partner-chip">Anthropic</span>
+        <span class="partner-chip">AWS</span>
+        <span class="partner-chip">Microsoft Azure</span>
+        <span class="partner-chip">Google Cloud</span>
+        <span class="partner-chip">Meta Llama</span>
+        <span class="partner-chip">LangChain</span>
+        <span class="partner-chip">CrewAI</span>
+        <span class="partner-chip">Hugging Face</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Team Section -->
-    <section class="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Leadership</h2>
-                <p>Visionary leaders driving AI transformation forward</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">PA</div>
-                    <h3>Pavan</h3>
-                    <div class="team-role">Founder & CEO</div>
-                    <p class="team-bio">Visionary leader with 15+ years in AI and enterprise transformation. Passionate about making AI accessible to every professional.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">RC</div>
-                    <h3>Rajesh Choudhury</h3>
-                    <div class="team-role">CTO & Head of Labs</div>
-                    <p class="team-bio">AI researcher and product architect. Leads development of Proxiant's suite of professional-grade AI products.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">AK</div>
-                    <h3>Amanda Kovacs</h3>
-                    <div class="team-role">Head of Solutions</div>
-                    <p class="team-bio">Enterprise transformation specialist. Oversees implementation of large-scale AI integration projects for Fortune 500 clients.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">DR</div>
-                    <h3>Dr. Rahul Singh</h3>
-                    <div class="team-role">Head of Academy</div>
-                    <p class="team-bio">Educational leader with expertise in curriculum design. Creates comprehensive AI training programs that drive real-world impact.</p>
-                </div>
-            </div>
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Let&rsquo;s talk about what AI can actually do for your team.</h2>
+          <p>No pitch deck. No pressure. We&rsquo;ll assess where you are, where you want to go, and whether we&rsquo;re the right fit to get you there.</p>
         </div>
-    </section>
+        <a href="mailto:sendpavan@gmail.com" class="btn btn-accent">Book a consultation</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Partners Section -->
-    <section class="partners">
-        <div class="container">
-            <div class="section-header">
-                <h2>Technology Partners</h2>
-                <p>We work with the best platforms and frameworks in the industry</p>
-            </div>
-            <div class="partners-grid">
-                <div class="partner-badge">OpenAI</div>
-                <div class="partner-badge">Anthropic</div>
-                <div class="partner-badge">AWS</div>
-                <div class="partner-badge">Microsoft Azure</div>
-                <div class="partner-badge">Google Cloud</div>
-                <div class="partner-badge">Meta Llama</div>
-                <div class="partner-badge">LangChain</div>
-                <div class="partner-badge">CrewAI</div>
-                <div class="partner-badge">Stripe</div>
-                <div class="partner-badge">Hugging Face</div>
-            </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Proxiant<span>.</span></div>
+          <p class="footer-tagline">Enterprise AI training, transformation, and products. Built for teams that ship.</p>
         </div>
-    </section>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#contact">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="solutions.html">Services</a></li>
+            <li><a href="solutions.html">Case Studies</a></li>
+            <li><a href="solutions.html">Assessment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Labs &amp; ProxiAlpha</h4>
+          <ul>
+            <li><a href="labs.html">Products</a></li>
+            <li><a href="proxialpha.html">ProxiAlpha</a></li>
+            <li><a href="labs.html">API Docs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Proxiant AI. All rights reserved.</span>
+        <span>sendpavan@gmail.com</span>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Blog/Insights Preview -->
-    <section class="insights">
-        <div class="container">
-            <div class="section-header">
-                <h2>Latest Insights</h2>
-                <p>Expert perspectives on AI trends and best practices</p>
-            </div>
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <div class="insight-meta">
-                        <p>January 15, 2024 • 8 min read</p>
-                        <h3>AI Readiness: The Assessment That Changes Everything</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Most organizations jump into AI implementation without understanding their actual readiness. Learn how a comprehensive assessment reveals hidden opportunities and risks.</p>
-                        <a href="#" class="learn-more">Read Article →</a>
-                    </div>
-                </div>
-                <div class="insight-card">
-                    <div class="insight-meta">
-                        <p>January 10, 2024 • 12 min read</p>
-                        <h3>Building Enterprise AI Agents: Architecture Patterns That Work</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Explore proven architectural patterns for building AI agents that are reliable, scalable, and production-ready. Real-world examples included.</p>
-                        <a href="#" class="learn-more">Read Article →</a>
-                    </div>
-                </div>
-                <div class="insight-card">
-                    <div class="insight-meta">
-                        <p>January 5, 2024 • 6 min read</p>
-                        <h3>The ROI of AI Training: Why Investing in Your Team Matters</h3>
-                    </div>
-                    <div class="insight-body">
-                        <p>Data-driven analysis of how professional AI training programs translate to measurable business outcomes and competitive advantage.</p>
-                        <a href="#" class="learn-more">Read Article →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay Updated on AI</h2>
-            <p>Get expert insights, case studies, and industry trends delivered to your inbox</p>
-            <form class="newsletter-form" onsubmit="alert('Thank you for subscribing!'); return false;">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Ready to transform your organization with AI? Let's talk.</p>
-            </div>
-            <div class="contact-grid">
-                <form class="contact-form" onsubmit="alert('Thank you for reaching out! We will contact you soon.'); return false;">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Company">
-                    <select required style="padding: 0.8rem; border: 1px solid #E0E7FF; border-radius: 6px; font-family: 'Inter', sans-serif;">
-                        <option>Select Service Interested In</option>
-                        <option>Academy Training</option>
-                        <option>AI Consulting</option>
-                        <option>Product Implementation</option>
-                        <option>Other</option>
-                    </select>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="cta-button">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <strong>📍 Headquarters</strong>
-                        <p>San Francisco, CA<br>New York, NY<br>London, UK</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>📧 Email</strong>
-                        <p>sendpavanr@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>📱 Phone</strong>
-                        <p>+1 (415) 555-0100<br>+1 (212) 555-0200</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>🕐 Hours</strong>
-                        <p>Monday - Friday: 9AM - 6PM PT<br>Saturday: 10AM - 4PM PT</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">f</a>
-                        <a href="#" class="social-link">𝕏</a>
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">🔗</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Proxiant AI</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="academy.html">Academy</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li><a href="labs.html">Labs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Academy</h4>
-                    <ul>
-                        <li><a href="academy.html">All Courses</a></li>
-                        <li><a href="academy.html#paths">Learning Paths</a></li>
-                        <li><a href="academy.html#cert">Certification</a></li>
-                        <li><a href="academy.html#corp">Corporate Training</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="solutions.html">Services</a></li>
-                        <li><a href="solutions.html#framework">Framework</a></li>
-                        <li><a href="solutions.html#cases">Case Studies</a></li>
-                        <li><a href="solutions.html#assessment">Free Assessment</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Labs</h4>
-                    <ul>
-                        <li><a href="labs.html">Products</a></li>
-                        <li><a href="labs.html#pricing">Pricing</a></li>
-                        <li><a href="labs.html#docs">API Docs</a></li>
-                        <li><a href="labs.html#roadmap">Roadmap</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal & Support</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Security</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Proxiant AI. All rights reserved. The professionals behind your AI transition.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

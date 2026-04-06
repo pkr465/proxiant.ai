@@ -57,9 +57,9 @@ git push -u origin main
 ```
 proxiant-github-pages/
 ├── index.html          # Main homepage
-├── academy.html        # Proxiant Academy
 ├── solutions.html      # Proxiant Solutions
 ├── labs.html           # Proxiant Labs
+├── proxialpha.html     # ProxiAlpha trading platform
 ├── CNAME               # Custom domain config
 ├── assets/
 │   ├── logo.svg        # Full logo (light background)
